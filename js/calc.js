@@ -37,11 +37,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 
-
-
-
-
-
 	
 	displayScreen.addEventListener("click", function(event){
 		//displayScreen.style.color = "red";
@@ -57,13 +52,13 @@ document.addEventListener("DOMContentLoaded", function(event){
 			oldNum = parseInt(this.innerHTML);
 			displayScreen.innerHTML = oldNum
 
-			
-
 			if(newNum == ""){
 				newNum = oldNum;
 				newNum = parseInt(this.innerHTML);
 				//console.log(oldNum+ " " +newNum)
 			}
+
+			
 		//adds click event on buttonS
 			//displayScreen.innerHTML = this.innerHTML ; //this point to this!!!
 			/*
