@@ -6,27 +6,34 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 
 
-	var Num1 = "";
+	var oldNum = "";
 	var op = "";
-	var Num2 = "";
+	var newNum = "";
 	var ScreenAdd = "";
 	var displayScreen = document.getElementById("screen");
 
 
-	function Add(Num1, Num2){
-		return Num1 + Num2;
+	function Add(){
+		return displayScreen.innerHTML = oldNum + newNum;
 	}
 
-	function Subtract(Num1, Num2){
-		return Num1 - Num2;
+	function Subtract(){
+		return displayScreen.innerHTML = oldNum - newNum;
 	}
 
-	function Muilty(Num1, Num2){
-		return Num1 * Num2;
+	function Muilty(){
+		return displayScreen.innerHTML = oldNum * newNum;
 	}
 
-	function clearScreen(){
-		displayScreen.innerHTML="Sparta\ Calculator";
+	function Divid(){
+		return displayScreen.innerHTML = oldNum / newNum;
+	}
+
+	function clearScreen(){ //clears the screen works
+		displayScreen.innerHTML="Spsarta\ Calculator";
+		oldNum = "";
+		newNum = "";
+		op = "";
 	}
 
 
@@ -45,9 +52,21 @@ document.addEventListener("DOMContentLoaded", function(event){
 	var butts = document.getElementsByClassName("buttonNum"); //set butts to get elements
 	console.log(butts);
 	for (var i = 0; i < butts.length; i++){
-		butts[i].addEventListener("click",function(event) { //adds click event on buttonS
-			//displayScreen.innerHTML = this.innerHTML ; //this point to this!!!
+		butts[i].addEventListener("click",function(event) { 
 
+			oldNum = parseInt(this.innerHTML);
+			displayScreen.innerHTML = oldNum
+
+			
+
+			if(newNum == ""){
+				newNum = oldNum;
+				newNum = parseInt(this.innerHTML);
+				//console.log(oldNum+ " " +newNum)
+			}
+		//adds click event on buttonS
+			//displayScreen.innerHTML = this.innerHTML ; //this point to this!!!
+			/*
 			if (Num1 == "" ){
 				console.log(displayScreen.innerHTML);
 				Num1 = parseInt(this.innerHTML); //sets value to inner html
@@ -55,11 +74,10 @@ document.addEventListener("DOMContentLoaded", function(event){
 			} else if (op != ""){
 				Num2 = parseInt(this.innerHTML);
 				displayScreen.innerHTML += "" + op + "" + Num2; //adds onto the scrren but still over 
-			}
+			}*/
 
 
 
-			console.log(Num1);
 /*
 			if (Num2 == "" && op != "" && Num1 != ""){
 				Num2 = this.innerHTML;
@@ -76,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 			//displayScreen.innerHTML = this.innerHTML;
 			op = this.innerHTML; //sets the inner HTML to the op value
 			//console.log(op)
-			displayScreen.innerHTML = Num1 + " "; //+ op ;
+			displayScreen.innerHTML = op; //+ op ;
 		})
 	}
 
@@ -84,25 +102,34 @@ document.addEventListener("DOMContentLoaded", function(event){
 	var eqButt = document.getElementsByClassName("equals");
 	for (var i = 0; i < eqButt.length; i++){
 		eqButt[i].addEventListener("click", function(event){
-			console.log("eq fam");
+			//console.log("eq fam");
+			switch(op){
+				case "+":
+				Add()
+				break;
+
+				case "-":
+				Subtract()
+				break;
+
+				case "/":
+				Divid()
+				break;
+
+				case "*":
+				Muilty()
+				break;
+
+			}
 		})
 	}
 
 	//clear button
 	var clearButt = document.getElementsByClassName("buttonClear");
 	clearButt[0].addEventListener("click", function(event){
-		console.log("clear");
+		//console.log("clear");
 		clearScreen();
 		})
-		
-	
-
-
-
-
-
-
-
 
 })
 /*
