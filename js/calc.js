@@ -1,11 +1,41 @@
 document.addEventListener("DOMContentLoaded", function(event){
+	/* functions needed:
+	- add, subtract, divid, muiltply, clear screen, equals
+	*/
+
+
+
 
 	var Num1 = "";
 	var op = "";
 	var Num2 = "";
 	var ScreenAdd = "";
-
 	var displayScreen = document.getElementById("screen");
+
+
+	function Add(Num1, Num2){
+		return Num1 + Num2;
+	}
+
+	function Subtract(Num1, Num2){
+		return Num1 - Num2;
+	}
+
+	function Muilty(Num1, Num2){
+		return Num1 * Num2;
+	}
+
+	function clearScreen(){
+		displayScreen.innerHTML="Sparta\ Calculator";
+	}
+
+
+
+
+
+
+
+	
 	displayScreen.addEventListener("click", function(event){
 		//displayScreen.style.color = "red";
 		//displayScreen.innerHTML= "1";
@@ -60,12 +90,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	//clear button
 	var clearButt = document.getElementsByClassName("buttonClear");
-	for (var i = 0; i < clearButt.length; i++){
-		clearButt[i].addEventListener("click", function(event){
-			console.log("clear");
+	clearButt[0].addEventListener("click", function(event){
+		console.log("clear");
+		clearScreen();
 		})
 		
-	}
+	
 
 
 
